@@ -7,13 +7,29 @@
 (def service-url "https://mobizon.kz/service")
 (def api-key "apiKey=XXX")
 (def out-format "output=xml")
-(def getownbalance-method "/user/getownbalance")
+
+(def getownbalance-method  "/user/getownbalance")
+(def sendsmsmessage-method "/message/sendsmsmessage")
+
 
 (def balance-request (str  
                        service-url 
                        getownbalance-method "?"
                        out-format "&"
                        api-key))
+
+(defn message-request 
+  [recipient message]
+  (str
+    service-url
+    sendsmsmessage-method "?"
+    out-format "&"
+    api-key "?"
+    recipient "?"
+    message "?"))
+                       
+                       
+
 (defn request-data
   [req]
   (:content (xml/parse req)))
@@ -35,7 +51,8 @@
     first
     read-string))
 
-    
+
+
     
 
 (defn -main
