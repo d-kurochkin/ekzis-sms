@@ -5,7 +5,7 @@
 (require '[clojure.zip :as zip])
 
 (def service-url "https://mobizon.kz/service")
-(def api-key "apiKey=XXX")
+(def api-key "apiKey=0336f1db764f13bba0357f854da66fea9633233a")
 (def out-format "output=xml")
 
 (def getownbalance-method  "/user/getownbalance")
@@ -24,11 +24,12 @@
     service-url
     sendsmsmessage-method "?"
     out-format "&"
-    api-key "?"
-    recipient "?"
-    message))
+    api-key "&"
+    "recipient=" (url-encode recipient) "&"
+    "text=" message))
                        
-                      
+(def url-encode #(. java.net.URLEncoder encode %))
+
 (defn request-data
   [req]
   (:content (xml/parse req)))
