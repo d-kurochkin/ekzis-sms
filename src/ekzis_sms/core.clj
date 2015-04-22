@@ -26,10 +26,9 @@
     out-format "&"
     api-key "?"
     recipient "?"
-    message "?"))
+    message))
                        
-                       
-
+                      
 (defn request-data
   [req]
   (:content (xml/parse req)))
@@ -47,13 +46,9 @@
     balance-request
     request-data
     (get-tag-content :data)
-    (get-tag-content :balance)
+    (get-tag-content :balance)s
     first
-    read-string))
-
-
-
-    
+    read-string))  
 
 (defn -main
   []
