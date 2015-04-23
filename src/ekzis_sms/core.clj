@@ -1,5 +1,6 @@
 (ns ekzis-sms.core
-  (:use ekzis-sms.sms.balance)
+  (:use ekzis-sms.sms.balance
+        ekzis-sms.dir)
   (:gen-class))
 
 (defn start-balance-task
@@ -8,6 +9,8 @@
    (Thread. check-balance-loop)
    ;(.setDaemon true)
    (.start)))
+
+
 
 (defn -main
   []
