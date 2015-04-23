@@ -11,6 +11,7 @@
 (def getownbalance-method  "/user/getownbalance")
 (def sendsmsmessage-method "/message/sendsmsmessage")
 
+(def url-encode #(. java.net.URLEncoder encode %))
 
 (def balance-request (str  
                        service-url 
@@ -25,10 +26,10 @@
     sendsmsmessage-method "?"
     out-format "&"
     api-key "&"
-    "recipient=" (url-encode recipient) "&"
-    "text=" message))
+    "recipient=" recipient "&"
+    "text=" (url-encode  message)))
                        
-(def url-encode #(. java.net.URLEncoder encode %))
+
 
 (defn request-data
   [req]
@@ -47,7 +48,7 @@
     balance-request
     request-data
     (get-tag-content :data)
-    (get-tag-content :balance)s
+    (get-tag-content :balance)
     first
     read-string))  
 
