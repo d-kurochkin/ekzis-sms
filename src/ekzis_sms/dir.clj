@@ -15,3 +15,7 @@
     (filter check-ekz)
     first))
   
+(defn parse-message
+  [file]
+  (let [data (xml/parse file)] nil))
+  
