@@ -18,6 +18,8 @@
   
 (defn parse-message
   [file]
-  (let [data (get-xml-data file)] data))
+  (let [data (get-xml-data file)
+        attrs (get-tag-attrs :NOM (parse-message f))] 
+    attrs))
         
         
