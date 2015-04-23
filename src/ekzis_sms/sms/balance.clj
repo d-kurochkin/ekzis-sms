@@ -1,9 +1,8 @@
-(ns ekzis-sms.sms.balance)
+(ns ekzis-sms.sms.balance
+  (:use ekzis-sms.sms.service))
 
-(use 'ekzis-sms.sms.service)
 
 (def getownbalance-method  "/user/getownbalance")
-
 (def balance-request (str  
                        service-url 
                        getownbalance-method "?"

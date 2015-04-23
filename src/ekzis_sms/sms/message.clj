@@ -11,3 +11,7 @@
     api-key "&"
     "recipient=" recipient "&"
     "text=" (url-encode  message)))
+
+(defn send-message
+  [recipient message]
+  (println (message-request recipient message)))
