@@ -2,8 +2,6 @@
   (:use ekzis-sms.sms.service
         ekzis-sms.sms.dir
         ekzis-sms.xml))
-
-
         
 (defn message-request 
   [[recipient message]]
