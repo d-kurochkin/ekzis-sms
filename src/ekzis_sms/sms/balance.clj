@@ -1,6 +1,8 @@
 (ns ekzis-sms.sms.balance
   (:use ekzis-sms.sms.service))
 
+(def balance-timeout 60000)
+
 (def getownbalance-method  "/user/getownbalance")
 (def balance-request (str  
                        service-url 
@@ -21,6 +23,6 @@
 (defn check-balance-loop
   []
   (loop []
-    (Thread/sleep 5000)
+    (Thread/sleep balance-timeout)
     (println (get-balance))
     (recur)))

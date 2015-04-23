@@ -2,7 +2,6 @@
   (:use ekzis-sms.sms.balance)
   (:gen-class))
 
-
 (defn start-balance-task
   []
   (doto 
