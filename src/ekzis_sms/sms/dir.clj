@@ -16,13 +16,9 @@
     (filter check-ekz)
     first))
   
-(defn parse-message
+(defn parse-file
   [file]
   (let [data (get-xml-data file)
         attrs (get-tag-attrs :NOM data)
         {:keys [MKOD MNAIM]} attrs] 
     [MKOD MNAIM]))
-        
-
-
-        

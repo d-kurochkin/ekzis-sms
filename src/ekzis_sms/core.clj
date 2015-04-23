@@ -1,7 +1,7 @@
 (ns ekzis-sms.core
   (:use ekzis-sms.sms.balance
         ekzis-sms.sms.message
-        ekzis-sms.dir)
+        ekzis-sms.sms.dir)
   (:gen-class))
 
 (defn start-balance-task
