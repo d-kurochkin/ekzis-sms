@@ -1,13 +1,6 @@
 (ns ekzis-sms.core
+  (:use ekzis-sms.sms.balance)
   (:gen-class))
-
-(use 'ekzis-sms.sms.balance)
-
-
-
-                       
-
- 
 
 (defn -main
   []

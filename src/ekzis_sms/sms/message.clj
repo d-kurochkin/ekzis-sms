@@ -1,6 +1,6 @@
-(ns ekzis-sms.sms.message)
+(ns ekzis-sms.sms.message
+  (:use ekzis-sms.sms.service))
 
-(use 'ekzis-sms.sms.service)
 
 (defn message-request 
   [recipient message]
