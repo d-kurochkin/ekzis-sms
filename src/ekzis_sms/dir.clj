@@ -19,7 +19,8 @@
 (defn parse-message
   [file]
   (let [data (get-xml-data file)
-        attrs (get-tag-attrs :NOM (parse-message f))] 
-    attrs))
+        attrs (get-tag-attrs :NOM (parse-message f))
+        {:keys [MKOD MNAIM]} attrs] 
+    [MKOD MNAIM]))
         
         
