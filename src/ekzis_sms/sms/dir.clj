@@ -1,4 +1,4 @@
-(ns ekzis-sms.dir
+(ns ekzis-sms.sms.dir
   (:use ekzis-sms.xml)
   (:require [clojure.java.io :as io]))
 
@@ -19,8 +19,10 @@
 (defn parse-message
   [file]
   (let [data (get-xml-data file)
-        attrs (get-tag-attrs :NOM (parse-message f))
+        attrs (get-tag-attrs :NOM data)
         {:keys [MKOD MNAIM]} attrs] 
     [MKOD MNAIM]))
         
+
+
         
