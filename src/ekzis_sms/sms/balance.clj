@@ -1,4 +1,5 @@
 (ns ekzis-sms.sms.balance
+  (:use ekzis-sms.xml)
   (:use ekzis-sms.sms.service))
 
 (def balance-timeout 60000)
@@ -14,7 +15,7 @@
   []
   (->>
     balance-request
-    request-data
+    get-xml-data
     (get-tag-content :data)
     (get-tag-content :balance)
     first

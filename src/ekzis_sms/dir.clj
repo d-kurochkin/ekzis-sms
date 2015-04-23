@@ -1,4 +1,5 @@
 (ns ekzis-sms.dir
+  (:use ekzis-sms.xml)
   (:require [clojure.java.io :as io]))
 
 (def directory (io/file "/home/pengo/Development/ekzis-sms/data/"))
@@ -17,5 +18,6 @@
   
 (defn parse-message
   [file]
-  (let [data (xml/parse file)] nil))
-  
+  (let [data (get-xml-data file)] data))
+        
+        
