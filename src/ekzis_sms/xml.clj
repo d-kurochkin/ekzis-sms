@@ -13,3 +13,10 @@
     (filter #(= tag (:tag %)) data)
     first
     :content))
+
+(defn get-tag-attrs 
+  [tag data]
+  (->>
+    (filter #(= tag (:tag %)) data)
+    first
+    :attrs))
