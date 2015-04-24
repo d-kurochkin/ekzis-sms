@@ -23,7 +23,7 @@
 (defn move-file
   [file]
   (let [file_path (str file)
-        file_name (last (str/split file_name #"/"))
+        file_name (last (str/split file_path #"/"))
         out_path  (str output-directory "/" file_name)]
     (.renameTo (File. file_path) (File. out_path))))
     
