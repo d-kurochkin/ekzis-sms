@@ -18,7 +18,7 @@
   (loop []
     (try
      (main-task)
-     (catch Exception e (str "Exception: " (.getMessage e))))
+     (catch Exception e (println (str "Exception: " (.getMessage e)))))
     (Thread/sleep 5000) 
     (recur)))
    
