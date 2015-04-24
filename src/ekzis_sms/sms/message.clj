@@ -14,7 +14,7 @@
     "recipient=" recipient "&"
     "text=" (url-encode  message)))
 
-(defn send-next-message
+(defn send-message
   [sms-file]
   (let [data (parse-file sms-file)
         request (message-request data)
