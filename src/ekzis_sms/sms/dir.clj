@@ -6,9 +6,10 @@
 
 (import '(java.io File))
 
-(def input-directory (io/file "/home/pengo/Development/ekzis-sms/data/in"))
-(def output-directory (io/file "/home/pengo/Development/ekzis-sms/data/out"))
-(def balance-file-path "/home/pengo/Development/ekzis-sms/data/balance.ekz") 
+(def data-dir-path "/home/ekzis/sms_storage/")
+(def input-directory (io/file (str data-dir-path "in")))
+(def output-directory (io/file (str data-dir-path "out")))
+(def balance-file-path (str data-dir-path "balance.ekz")) 
 
 (defn check-ekz
   [file]
