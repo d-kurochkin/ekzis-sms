@@ -19,7 +19,7 @@
     input-directory
     file-seq
     (filter check-ekz)
-    first))
+    rand-nth))
 
 (defn move-file
   [file]
@@ -35,4 +35,5 @@
         attrs (get-tag-attrs :SMS [data])
         {:keys [NOM_MKOD MNAIM]} attrs] 
     [NOM_MKOD MNAIM]))
+
 
