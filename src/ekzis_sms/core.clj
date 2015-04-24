@@ -15,7 +15,7 @@
 
 (defn main-task-loop
   []
-  (loop
+  (loop []
     (try
      (main-task)
      (catch Exception e (str "Exception: " (.getMessage e))))
@@ -29,10 +29,7 @@
    ;(.setDaemon true)
    (.start)))
 
-
-
-
 (defn -main
   []
-  (start-balance-task)
+  (start-main-task)
   (println "Start balance checking"))
