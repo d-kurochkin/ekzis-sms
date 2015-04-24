@@ -36,4 +36,3 @@
         {:keys [NOM_MKOD MNAIM]} attrs] 
     [NOM_MKOD MNAIM]))
 
-

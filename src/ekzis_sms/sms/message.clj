@@ -16,9 +16,12 @@
 
 (defn send-next-message
   [sms-file]
-  (let [request (->> sms-file (parse-file) (message-request))
+  (let [data (parse-file sms-file)
+        request (message-request data)
         response (xml/parse request)
         [res-code res-msg] (get-response-status response)]
-    (if (or (= res-code 0) (= res-code 100))
+    (println (str "Send message: " data " Result: " [res-code res-msg])) 
+    (if 
+      (or (= res-code 0) (= res-code 100))
       (do (move-file sms-file) true)
       false)))
