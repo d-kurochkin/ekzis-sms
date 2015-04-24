@@ -16,10 +16,10 @@
 
 (defn write-balance
   [balance]
+  (println (str "Current account balance: " balance " KZT"))
   (with-open [w (io/writer balance-file-path)]
     (.write w (str balance))))
   
-
 (defn get-next-file
   []
   (->>
