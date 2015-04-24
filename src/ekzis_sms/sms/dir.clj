@@ -19,7 +19,7 @@
     input-directory
     file-seq
     (filter check-ekz)
-    rand-nth))
+    first))
 
 (defn move-file
   [file]
