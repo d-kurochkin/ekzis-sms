@@ -1,4 +1,5 @@
 (ns ekzis-sms.sms.message
+  (:require [clojure.xml :as xml])
   (:use ekzis-sms.sms.service
         ekzis-sms.sms.dir
         ekzis-sms.xml))
@@ -15,7 +16,8 @@
 
 (defn send-next-message
   []
-  (println (->> 
-             (get-next-file)  
-             (parse-file) 
-             (message-request))))
+  (let [sms-file (get-next-file)
+        request (->> sms-file (parse-file) (message-request))
+        response (xml/parse request)
+        [res-code res-msg] (get-response-status response)]
+    (println nil)))
