@@ -19,11 +19,4 @@
     (get-tag-content :data)
     (get-tag-content :balance)
     first
-    read-string))  
-
-(defn check-balance-loop
-  []
-  (loop []
-    (Thread/sleep balance-timeout)
-    (println (get-balance))
-    (recur)))
+    read-string))
