@@ -15,9 +15,10 @@
     "text=" (url-encode  message)))
 
 (defn send-next-message
-  []
-  (let [sms-file (get-next-file)
-        request (->> sms-file (parse-file) (message-request))
+  [sms-file]
+  (let [request (->> sms-file (parse-file) (message-request))
         response (xml/parse request)
         [res-code res-msg] (get-response-status response)]
-    (println nil)))
+    (if (or (= res-code 0) (= res-code 100))
+      (do (move-file sms-file) true)
+      false)))
