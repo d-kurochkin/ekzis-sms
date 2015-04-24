@@ -8,10 +8,17 @@
 
 (def input-directory (io/file "/home/pengo/Development/ekzis-sms/data/in"))
 (def output-directory (io/file "/home/pengo/Development/ekzis-sms/data/out"))
+(def balance-file-path "/home/pengo/Development/ekzis-sms/data/balance.ekz") 
 
 (defn check-ekz
   [file]
   (.contains (str file) ".ekz"))
+
+(defn write-balance
+  [balance]
+  (with-open [w (io/writer balance-file-path)]
+    (.write w (str balance))))
+  
 
 (defn get-next-file
   []
