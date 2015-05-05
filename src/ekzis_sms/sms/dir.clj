@@ -9,6 +9,7 @@
 (def data-dir-path "/home/ekzis/sms_storage/")
 (def input-directory (io/file (str data-dir-path "in")))
 (def output-directory (io/file (str data-dir-path "out")))
+(def error-directory (io/file (str data-dir-path "out")))
 (def balance-file-path (str data-dir-path "balance.ekz")) 
 
 (defn check-ekz
@@ -30,13 +31,21 @@
     first))
 
 (defn move-file
-  [file]
+  [file dir]
   (let [file_path (str file)
         file_name (last (str/split file_path #"/"))
-        out_path  (str output-directory "/" file_name)]
+        out_path  (str dir "/" file_name)]
     (.renameTo (File. file_path) (File. out_path))))
     
-  
+(defn move-to-send
+  [file]
+  (move-file file output-directory))
+
+
+(defn move-to-err
+  [file]
+  (move-file file error-directory))
+
 (defn parse-file
   [file]
   (let [data (xml/parse file)
