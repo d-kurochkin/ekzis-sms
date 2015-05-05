@@ -23,5 +23,10 @@
     (println (str "Send message: " data " Result: " [res-code res-msg])) 
     (if 
       (or (= res-code 0) (= res-code 100))
-      (do (move-file sms-file) true)
-      false)))
+      (do 
+        (move-to-send sms-file) 
+        true)
+      (do 
+        (move-to-err sms-file) 
+        (println response)
+        false))))
