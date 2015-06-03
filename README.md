@@ -1,7 +1,3 @@
 # ekzis-sms
 
-A Clojure app to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+A Clojure app send sms via Mobizon API
